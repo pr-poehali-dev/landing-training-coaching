@@ -214,6 +214,122 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Certificates Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-secondary/10 to-primary/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-accent mb-4">
+              Официальные сертификаты
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Подтвердите свою квалификацию документами государственного образца
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="Award" size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-montserrat font-bold text-accent mb-2">
+                    Государственный образец
+                  </h3>
+                  <p className="text-gray-600">
+                    Сертификаты соответствуют требованиям Министерства образования и признаются работодателями
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="CheckCircle" size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-montserrat font-bold text-accent mb-2">
+                    Верификация онлайн
+                  </h3>
+                  <p className="text-gray-600">
+                    Каждый сертификат имеет уникальный QR-код для мгновенной проверки подлинности
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="Download" size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-montserrat font-bold text-accent mb-2">
+                    Цифровой и печатный формат
+                  </h3>
+                  <p className="text-gray-600">
+                    Получите сертификат в электронном виде сразу после окончания и закажите печатную версию
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name="Globe" size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-montserrat font-bold text-accent mb-2">
+                    Международное признание
+                  </h3>
+                  <p className="text-gray-600">
+                    Наши сертификаты признаются в России, СНГ и странах Европы
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <Icon name="Award" size={32} className="text-white" />
+                  </div>
+                  <h3 className="text-2xl font-montserrat font-bold text-accent mb-2">
+                    СЕРТИФИКАТ
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-4">о прохождении курса</p>
+                  <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-4"></div>
+                  <p className="font-semibold text-lg text-accent mb-2">Эмоциональный интеллект</p>
+                  <p className="text-gray-600 mb-4">40 академических часов</p>
+                  <div className="flex justify-between items-center text-sm text-gray-500">
+                    <span>№ 2024-EI-1247</span>
+                    <div className="w-8 h-8 bg-gray-200 rounded"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                <Icon name="Stamp" size={32} className="text-white" />
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-montserrat font-bold text-primary mb-2">5000+</div>
+                <p className="text-gray-600">Выданных сертификатов</p>
+              </div>
+              <div>
+                <div className="text-3xl font-montserrat font-bold text-secondary mb-2">98%</div>
+                <p className="text-gray-600">Успешных выпускников</p>
+              </div>
+              <div>
+                <div className="text-3xl font-montserrat font-bold text-accent mb-2">24ч</div>
+                <p className="text-gray-600">Получение сертификата</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-accent to-primary text-white">
         <div className="max-w-4xl mx-auto text-center">
