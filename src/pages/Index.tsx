@@ -2,14 +2,43 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
 
 export default function Index() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 3); // Акция действует 3 дня
+    
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+      
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
   const courses = [
     {
       id: 1,
       title: "Эмоциональный интеллект",
       description: "Развивайте навыки управления эмоциями и улучшите качество жизни",
       price: "19 990 ₽",
+      originalPrice: "29 990 ₽",
       duration: "4 недели",
       icon: "Heart",
       color: "bg-gradient-to-br from-rose-400 to-pink-500"
@@ -18,7 +47,8 @@ export default function Index() {
       id: 2,
       title: "Лидерство и команда",
       description: "Станьте эффективным лидером и научитесь управлять командой",
-      price: "24 990 ₽", 
+      price: "24 990 ₽",
+      originalPrice: "34 990 ₽", 
       duration: "6 недель",
       icon: "Users",
       color: "bg-gradient-to-br from-blue-400 to-blue-600"
@@ -28,6 +58,7 @@ export default function Index() {
       title: "Время и продуктивность",
       description: "Овладейте искусством тайм-менеджмента и повысьте эффективность",
       price: "16 990 ₽",
+      originalPrice: "22 990 ₽",
       duration: "3 недели", 
       icon: "Clock",
       color: "bg-gradient-to-br from-green-400 to-emerald-500"
@@ -37,6 +68,7 @@ export default function Index() {
       title: "Публичные выступления",
       description: "Преодолейте страх сцены и станьте убедительным спикером",
       price: "21 990 ₽",
+      originalPrice: "31 990 ₽",
       duration: "5 недель",
       icon: "Mic",
       color: "bg-gradient-to-br from-purple-400 to-purple-600"
@@ -46,6 +78,7 @@ export default function Index() {
       title: "Финансовая грамотность",
       description: "Научитесь управлять деньгами и создавать пассивный доход",
       price: "29 990 ₽",
+      originalPrice: "49 990 ₽",
       duration: "8 недель",
       icon: "TrendingUp",
       color: "bg-gradient-to-br from-yellow-400 to-orange-500"
@@ -55,6 +88,7 @@ export default function Index() {
       title: "Коммуникация и переговоры",
       description: "Развивайте навыки общения и ведения переговоров",
       price: "18 990 ₽",
+      originalPrice: "26 990 ₽",
       duration: "4 недели",
       icon: "MessageCircle",
       color: "bg-gradient-to-br from-teal-400 to-cyan-500"
@@ -64,6 +98,7 @@ export default function Index() {
       title: "Стрессоустойчивость",
       description: "Научитесь справляться со стрессом и найдите баланс в жизни",
       price: "17 990 ₽",
+      originalPrice: "25 990 ₽",
       duration: "4 недели",
       icon: "Shield",
       color: "bg-gradient-to-br from-indigo-400 to-indigo-600"
@@ -73,6 +108,7 @@ export default function Index() {
       title: "Целеполагание и мотивация",
       description: "Ставьте правильные цели и находите мотивацию для их достижения",
       price: "22 990 ₽",
+      originalPrice: "32 990 ₽",
       duration: "5 недель",
       icon: "Target",
       color: "bg-gradient-to-br from-red-400 to-red-600"
@@ -125,6 +161,51 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Timer Section */}
+      <section className="py-6 px-4 bg-gradient-to-r from-red-500 to-red-600 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="text-center md:text-left mb-4 md:mb-0">
+              <h3 className="text-2xl font-montserrat font-bold mb-2">
+                🔥 Летняя акция -33% на все курсы!
+              </h3>
+              <p className="text-lg opacity-95">
+                Успей записаться по специальной цене до окончания акции
+              </p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="text-center">
+                <div className="bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-2xl font-bold">{timeLeft.days.toString().padStart(2, '0')}</div>
+                  <div className="text-xs opacity-80">дней</div>
+                </div>
+              </div>
+              <div className="text-2xl">:</div>
+              <div className="text-center">
+                <div className="bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-2xl font-bold">{timeLeft.hours.toString().padStart(2, '0')}</div>
+                  <div className="text-xs opacity-80">часов</div>
+                </div>
+              </div>
+              <div className="text-2xl">:</div>
+              <div className="text-center">
+                <div className="bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-2xl font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</div>
+                  <div className="text-xs opacity-80">минут</div>
+                </div>
+              </div>
+              <div className="text-2xl">:</div>
+              <div className="text-center">
+                <div className="bg-white/20 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-2xl font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</div>
+                  <div className="text-xs opacity-80">секунд</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Courses Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -157,9 +238,17 @@ export default function Index() {
                       <Icon name="Calendar" size={14} className="mr-1" />
                       {course.duration}
                     </Badge>
+                    <Badge className="bg-red-500 text-white">
+                      -33%
+                    </Badge>
                   </div>
-                  <div className="text-2xl font-montserrat font-bold text-primary">
-                    {course.price}
+                  <div className="space-y-1">
+                    <div className="text-lg text-gray-400 line-through">
+                      {course.originalPrice}
+                    </div>
+                    <div className="text-2xl font-montserrat font-bold text-primary">
+                      {course.price}
+                    </div>
                   </div>
                 </CardContent>
                 <CardFooter>
